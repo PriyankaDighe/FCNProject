@@ -1,1 +1,3 @@
 # FCNProject
+
+pip install selenium
