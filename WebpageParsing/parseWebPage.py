@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 import json
 import re
+import sys
 
 #Pattern to match a href tag
 HREF_PATTERN_MATCH = "a(.*?)</a"
@@ -33,8 +34,8 @@ MENU = "menu"
 MENU_ELEM_ID = "nice-menu-0"
 TEXT = "text"
 
-website_link = "https://www.cs.stonybrook.edu/admissions/Graduate-Program"
-web_driver = "/Users/priyankadighe/Downloads/geckodriver"
+#website_link = "https://www.cs.stonybrook.edu/admissions/Graduate-Program"
+#web_driver = "/Users/priyankadighe/Downloads/geckodriver"
 
 #parse the attributes of the lowest layer of child elements
 def get_child_element_attributes(child):
@@ -57,7 +58,8 @@ def get_child_element_attributes(child):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-
+    website_link = sys.argv[1]
+    web_driver = sys.argv[2]
     #load the firefox gecko driver
     s=Service(web_driver)
     driver = webdriver.Firefox(service=s)
